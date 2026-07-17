@@ -10,11 +10,11 @@ int WINAPI WinMain(_In_ HINSTANCE, _In_opt_ HINSTANCE, _In_ LPSTR, _In_ int) {
 
 	DirectXCommon* dxcommon = DirectXCommon::GetInstance();
 
-	GameScene* gameScene = new GameScene;
+	/*GameScene* gameScene = new GameScene;*/
 
 	TitleScene* titleScene = new TitleScene;
 
-	gameScene->Initialize();
+	/*gameScene->Initialize();*/
 
 	titleScene->Initialize();
 
@@ -23,7 +23,7 @@ int WINAPI WinMain(_In_ HINSTANCE, _In_opt_ HINSTANCE, _In_ LPSTR, _In_ int) {
 			break;
 		}
 
-		gameScene->Update();
+		/*gameScene->Update();*/
 
 		titleScene->Update();
 
@@ -33,7 +33,7 @@ int WINAPI WinMain(_In_ HINSTANCE, _In_opt_ HINSTANCE, _In_ LPSTR, _In_ int) {
 
 		titleScene->Draw();
 
-		gameScene->Draw();
+		/*gameScene->Draw();*/
 
 		Sprite::PostDraw();
 
