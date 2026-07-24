@@ -6,36 +6,37 @@ using namespace KamataEngine;
 
 // Windowsアプリでのエントリーポイント(main関数)
 int WINAPI WinMain(_In_ HINSTANCE, _In_opt_ HINSTANCE, _In_ LPSTR, _In_ int) {
-	KamataEngine::Initialize(L"LE3D_03_イセリ_シュンスケ_確認01_01");
+	KamataEngine::Initialize(L"LE3D_03_イセリ_シュンスケ_確認04_04");
 
 	DirectXCommon* dxcommon = DirectXCommon::GetInstance();
 
-	/*GameScene* gameScene = new GameScene;*/
+	GameScene* gameScene = new GameScene;
 
-	TitleScene* titleScene = new TitleScene;
+	/*TitleScene* titleScene = new TitleScene;*/
 
-	/*gameScene->Initialize();*/
+	gameScene->Initialize();
 
-	titleScene->Initialize();
+	/*titleScene->Initialize();*/
 
 	while (true) {
 		if (KamataEngine::Update()) {
 			break;
 		}
 
-		/*gameScene->Update();*/
+		gameScene->Update();
 
-		titleScene->Update();
+		/*titleScene->Update();*/
 
 		dxcommon->PreDraw();
 
-		Sprite::PreDraw(dxcommon->GetCommandList());
+	
 
-		titleScene->Draw();
+		/*titleScene->Draw();*/
 
-		/*gameScene->Draw();*/
+		gameScene->Draw();
 
-		Sprite::PostDraw();
+
+		
 
 		dxcommon->PostDraw();
 	}

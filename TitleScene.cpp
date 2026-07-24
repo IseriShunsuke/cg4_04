@@ -8,6 +8,9 @@ TitleScene::~TitleScene()
 
 void TitleScene::Initialize()
 {
+	// カメラの初期化
+	camera_.Initialize();
+
 	textureHandle_ = TextureManager::Load("stage.png");
 	textureHandleNext_ = TextureManager::Load("stageB.png");
 
@@ -15,11 +18,12 @@ void TitleScene::Initialize()
 	sprite_ = Sprite::Create(textureHandle_, position);
 
 	nextPosition = {1280.0f, 0.0f};
-	spriteNext_ = Sprite::Create(textureHandle_, position);
+	spriteNext_ = Sprite::Create(textureHandle_, nextPosition);
 }
 
 void TitleScene::Update()
 {
+
 	position.x -= 2.0f; 
 	nextPosition.x -= 2.0f;
 
@@ -37,7 +41,14 @@ void TitleScene::Update()
 }
 
 void TitleScene::Draw() 
-{ 
+{
+	DirectXCommon* dxcommon = DirectXCommon::GetInstance();
+
+
+	Sprite::PreDraw(dxcommon->GetCommandList());
+	
 	sprite_->Draw(); 
 	spriteNext_->Draw();
+
+	Sprite::PostDraw();
 }

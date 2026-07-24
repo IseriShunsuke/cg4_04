@@ -1,5 +1,6 @@
 #pragma once
 #include "KamataEngine.h"
+#include "Player.h"
 
 using namespace KamataEngine;
 
@@ -27,6 +28,7 @@ public:
 	void Draw();
 
 private:
+	
 	uint32_t textureHandle_;
 	uint32_t textureHandleNext_;
 
@@ -38,4 +40,7 @@ private:
 
 	 KamataEngine::Vector2 position;
 	 KamataEngine::Vector2 nextPosition;
+
+	 // カメラ
+	 Camera camera_;
 };
