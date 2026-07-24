@@ -2,6 +2,7 @@
 
 #include "KamataEngine.h"
 #include "Effect.h"
+#include "Player.h"
 
 using namespace KamataEngine;
 
@@ -9,7 +10,6 @@ using namespace KamataEngine;
 class GameScene
 {
 public:
-
 	/// <summary>
 	/// デストラクタ
 	/// </summary>
@@ -31,16 +31,22 @@ public:
 	void Draw();
 
 private:
+	Model* model_ = nullptr;
+	Player player_;
+
+	uint32_t textureHandle_;
+	uint32_t textureHandleNext_;
+
+	uint32_t fontTextureHandle_;
+
+	Sprite* sprite_ = nullptr;
+	Sprite* spriteNext_ = nullptr;
+	Sprite* spriteFont_ = nullptr;
+
+	KamataEngine::Vector2 position;
+	KamataEngine::Vector2 nextPosition;
+
 	// カメラ
 	Camera camera_;
-
-	// 3Dモデル エフェクト
-	Model* modelEffect_ = nullptr;
-
-	// エフェクト
-	std::list<Effect*> effects_;
-
-	// エフェクト発生
-	void EffectBorn(KamataEngine::Vector3 position);
 };
 
